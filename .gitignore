@@ -1,0 +1,72 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.ipynb_checkpoints/
+# Данные и артефакты экспериментов (крупные файлы — не в git)
+data/raw/
+data/processed/
+*.db
+*.sqlite
+runs/
+logs/
+*.mp4
+*.zip
+# IDE
+.idea/
+.vscode/
+.DS_Store
+
+# Unity (проект лежит в подпапке UnityProject/)
+/client/UnityProject/[Ll]ibrary/
+/client/UnityProject/[Tt]emp/
+/client/UnityProject/[Oo]bj/
+/client/UnityProject/[Bb]uild/
+/client/UnityProject/[Bb]uilds/
+/client/UnityProject/[Ll]ogs/
+/client/UnityProject/[Uu]ser[Ss]ettings/
+/client/UnityProject/[Mm]emoryCaptures/
+/client/UnityProject/[Rr]ecordings/
+/client/UnityProject/Assets/AssetStoreTools*
+/client/UnityProject/Assets/Plugins/Editor/JetBrains*
+/client/UnityProject/.vs/
+/client/UnityProject/.gradle/
+/client/UnityProject/ExportedObj/
+/client/UnityProject/.consulo/
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+*.pidb.meta
+*.pdb.meta
+*.mdb.meta
+sysinfo.txt
+*.apk
+*.aab
+*.unitypackage
+*.app
+/client/UnityProject/crashlytics-build.properties
+# IDE
+.idea/
+.vscode/
+.DS_Store
+# Видео демо — выкладывать ссылкой, не файлом
+*.mp4

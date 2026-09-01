@@ -1,0 +1,16 @@
+services:
+  server:
+    build: ./server
+    ports: ["8000:8000"]
+    environment:
+      DATABASE_URL: postgresql://gameai:gameai@db:5432/gameai
+    depends_on: [db]
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: gameai
+      POSTGRES_PASSWORD: gameai
+      POSTGRES_DB: gameai
+    volumes: ["pgdata:/var/lib/postgresql/data"]
+volumes:
+  pgdata:

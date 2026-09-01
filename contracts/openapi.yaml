@@ -1,0 +1,50 @@
+openapi: 3.0.3
+info:
+  title: GameAI server
+  version: 0.1.0
+paths:
+  /health:
+    get:
+      responses: {"200": {description: OK}}
+  /telemetry:
+    post:
+      summary: Приём одного события телеметрии
+      requestBody:
+        content:
+          application/json:
+            schema: {$ref: "#/components/schemas/TelemetryEvent"}
+      responses: {"202": {description: Accepted}}
+  /decision:
+    post:
+      summary: Запрос решения ИИ-модуля (например, уровня сложности)
+      requestBody:
+        content:
+          application/json:
+            schema: {$ref: "#/components/schemas/DecisionRequest"}
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {$ref: "#/components/schemas/DecisionResponse"}
+components:
+  schemas:
+    TelemetryEvent:
+      type: object
+      required: [session_id, player_id, event_type, timestamp]
+      properties:
+        session_id: {type: string}
+        player_id: {type: string}
+        event_type: {type: string}
+        timestamp: {type: string, format: date-time}
+        payload: {type: object}
+    DecisionRequest:
+      type: object
+      properties:
+        session_id: {type: string}
+        recent_deaths: {type: integer}
+        time_in_level_s: {type: number}
+    DecisionResponse:
+      type: object
+      properties:
+        difficulty: {type: number, minimum: 0, maximum: 1}
+        reason: {type: string}
